@@ -182,3 +182,13 @@ For edit access, get in touch on
 ### Thanks to all the people who have contributed
 
 [![contributors](https://contributors-img.web.app/image?repo=open-telemetry/opentelemetry-demo)](https://github.com/open-telemetry/opentelemetry-demo/graphs/contributors)
+
+
+### To add pyroscope ebpf to your k8s cluster agent run:
+
+First, make sure to update API KEY in `ebpf-values.yml` file. You can get the key [here](https://pyroscope.cloud/settings/api-keys).
+
+```
+make install-pyroscope-ebpf
+```
+

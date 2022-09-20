@@ -76,3 +76,8 @@ build-env-file:
 	cp .env .ghcr.env
 	sed -i '/IMAGE_VERSION=.*/c\IMAGE_VERSION=${RELEASE_VERSION}' .ghcr.env
 	sed -i '/IMAGE_NAME=.*/c\IMAGE_NAME=${GHCR_REPO}' .ghcr.env
+
+.PHONY: install-pyroscope-ebpf
+install-pyroscope-ebpf:
+	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart
+	helm install pyroscope-ebpf pyroscope-io/pyroscope-ebpf -f ebpf-values.yml

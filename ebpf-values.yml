@@ -1,0 +1,8 @@
+args:
+  - "ebpf"
+  - "--application-name"
+  - "otel-demo.ebpf"
+  - "--auth-token"
+  - "<REPLACE THIS WITH YOUR API KEY from https://pyroscope.cloud/settings/api-keys>"
+  - "--server-address"
+  - "https://ingest.pyroscope.cloud"
