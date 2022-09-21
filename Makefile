@@ -79,5 +79,10 @@ build-env-file:
 
 .PHONY: install-pyroscope-ebpf
 install-pyroscope-ebpf:
-	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart
-	helm install pyroscope-ebpf pyroscope-io/pyroscope-ebpf -f ebpf-values.yml
+	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart --force-update
+	helm upgrade -i pyroscope-ebpf pyroscope-io/pyroscope-ebpf -f ebpf-values.yml
+
+.PHONY: install-pyroscope-server
+install-pyroscope-server:
+	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart --force-update
+	helm upgrade -i pyroscope-server pyroscope-io/pyroscope -f pyroscope-server-values.yml

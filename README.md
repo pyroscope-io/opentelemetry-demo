@@ -184,11 +184,37 @@ For edit access, get in touch on
 [![contributors](https://contributors-img.web.app/image?repo=open-telemetry/opentelemetry-demo)](https://github.com/open-telemetry/opentelemetry-demo/graphs/contributors)
 
 
-### To add pyroscope ebpf to your k8s cluster agent run:
+## Pyroscope Additions
+
+### Adding pyroscope ebpf cluster-wide profiling to your k8s cluster
 
 First, make sure to update API KEY in `ebpf-values.yml` file. You can get the key [here](https://pyroscope.cloud/settings/api-keys).
 
 ```
 make install-pyroscope-ebpf
 ```
+
+
+### Adding pyroscope to `checkoutservice`
+
+```
+# this will create docker images and push them to your registry
+# you may have to change .dockerenv file to make this work with your registry
+make build-and-push-dockerhub
+
+# this will update the service in k8s:
+# it assumes that you have helm charts in an adjacent directory
+# and charts are modified to allow for port 6060 to be exposed
+# see commits in https://github.com/pyroscope-io/opentelemetry-helm-charts
+helm upgrade my-otel-demo ../opentelemetry-helm-charts/charts/opentelemetry-demo/
+```
+
+### Installing pyroscope server to run in your k8s cluster and collect profilng data from `checkoutservice`
+
+First, make sure to update API KEY in `pyroscope-server-values.yml` file. You can get the key [here](https://pyroscope.cloud/settings/api-keys).
+
+```
+make install-pyroscope-server
+```
+
 
