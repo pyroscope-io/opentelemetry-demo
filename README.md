@@ -190,14 +190,14 @@ For edit access, get in touch on
 
 First, make sure to update API KEY in `ebpf-values.yml` file. You can get the key [here](https://pyroscope.cloud/settings/api-keys).
 
-```
+```shell
 make install-pyroscope-ebpf
 ```
 
 
 ### Adding pyroscope to `checkoutservice`
 
-```
+```shell
 # this will create docker images and push them to your registry
 # you may have to change .dockerenv file to make this work with your registry
 make build-and-push-dockerhub
@@ -213,7 +213,7 @@ helm upgrade my-otel-demo ../opentelemetry-helm-charts/charts/opentelemetry-demo
 
 First, make sure to update API KEY in `pyroscope-server-values.yml` file. You can get the key [here](https://pyroscope.cloud/settings/api-keys).
 
-```
+```shell
 make install-pyroscope-server
 ```
 
